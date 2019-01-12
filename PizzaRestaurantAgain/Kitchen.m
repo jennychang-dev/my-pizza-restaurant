@@ -15,10 +15,11 @@
 -(Pizza *)makePizzaWithSize:(PizzaSize)size toppings:(NSArray *)toppings
 {
     Pizza *jcPizza = [[Pizza alloc] initWithPizzaSize:size andToppings:toppings];
-//    NSLog(@"toppings: %@, you have reached initialisation point",toppings);
     
     return jcPizza;
 }
+
+
 
 // optional: use respondsToSelector:
 

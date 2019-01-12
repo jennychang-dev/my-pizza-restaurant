@@ -17,9 +17,17 @@
         return NO;
 }
 
+
 - (BOOL)kitchenShouldUpgradeOrder:(Kitchen *)kitchen {
-    NSLog(@"kitchen should never upgrade as manager is a bitch");
-    return YES;
+    NSLog(@"kitchen should never upgrade");
+    return NO;
+}
+
+-(void)kitchenDidMakePizza:(Pizza *)pizza {
+    if ([self respondsToSelector:@selector(kitchen:shouldMakePizzaOfSize:andToppings:)]) {
+        return;
+    }
 }
 
 @end
+

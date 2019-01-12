@@ -17,10 +17,8 @@
 
 - (BOOL)kitchenShouldUpgradeOrder:(Kitchen *)kitchen {
 // always upgrade to large, implement nice NSLog
-    NSLog(@"second manager always wants to give ya a fatty pizza");
+    NSLog(@"have a nice day and here's an upgrade to your order!");
     return YES;
 }
-
-// at the end
 
 @end

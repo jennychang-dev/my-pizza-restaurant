@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "Kitchen.h"
 #import "Pizza.h"
+#import "Manager.h"
+#import "SecondManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

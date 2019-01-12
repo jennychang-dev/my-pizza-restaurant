@@ -17,7 +17,8 @@ int main(int argc, const char * argv[])
 {
     
     @autoreleasepool {
-        
+
+
         while (TRUE) {
             // Loop forever
             NSLog(@"Please pick your pizza size and toppings:");
@@ -29,7 +30,7 @@ int main(int argc, const char * argv[])
             
             NSLog(@"Input was %@", inputString);
             
-            NSLog(@"Now would you like a grumpy manager or a cheerful manager?");
+            NSLog(@"Now would you like a grumpy manager or a cheerful manager or any manager?");
             char gimme[100];
             fgets(gimme,100,stdin);
             
@@ -52,19 +53,26 @@ int main(int argc, const char * argv[])
             // come with a switch statement that takes a string and sets delegate
             NSString *inputManagerType = [[NSString alloc] initWithUTF8String:gimme];
             inputManagerType = [inputManagerType stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-            
+        
             Manager *mdel = [[Manager alloc] init];
             SecondManager *sdel = [[SecondManager alloc] init];
             
-        
-        if ([inputManagerType isEqualToString:@"grumpy"]) {
-            restaurantKitchen.delegate = mdel;
-        } else if ([inputManagerType isEqualToString:@"cheerful"])
-        {  restaurantKitchen.delegate = sdel;
-        } else {
-            NSLog(@"input only mdel or sdel");
-        }
             
+            int randomManager = 0 + arc4random_uniform(2);
+            
+            if ([inputManagerType isEqualToString:@"grumpy"]) {
+                restaurantKitchen.delegate = mdel;
+            } else if ([inputManagerType isEqualToString:@"cheerful"]) {
+                restaurantKitchen.delegate = sdel;
+            } else {
+                if (randomManager == 0) {
+                    restaurantKitchen.delegate = mdel;
+                } else {
+                    restaurantKitchen.delegate = sdel;
+                }
+            }
+
+
         [restaurantKitchen.delegate kitchen:restaurantKitchen shouldMakePizzaOfSize:sizeEnum andToppings:toppings];
         [restaurantKitchen.delegate kitchenShouldUpgradeOrder:restaurantKitchen];
         
