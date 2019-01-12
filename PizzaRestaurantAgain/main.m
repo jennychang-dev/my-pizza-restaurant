@@ -48,6 +48,7 @@ int main(int argc, const char * argv[])
             Kitchen *restaurantKitchen = [[Kitchen alloc] init];
             [restaurantKitchen makePizzaWithSize:sizeEnum toppings:toppings];
             
+
             // come with a switch statement that takes a string and sets delegate
             NSString *inputManagerType = [[NSString alloc] initWithUTF8String:gimme];
             inputManagerType = [inputManagerType stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
@@ -55,14 +56,20 @@ int main(int argc, const char * argv[])
             Manager *mdel = [[Manager alloc] init];
             SecondManager *sdel = [[SecondManager alloc] init];
             
-            if ([inputManagerType isEqualToString:@"grumpy"]) {
-                restaurantKitchen.delegate = mdel;
-            } else if
-                ([inputManagerType isEqualToString:@"cheery"]) {
-                    restaurantKitchen.delegate = sdel;
-            } 
+        
+        if ([inputManagerType isEqualToString:@"grumpy"]) {
+            restaurantKitchen.delegate = mdel;
+        } else if ([inputManagerType isEqualToString:@"cheerful"])
+        {  restaurantKitchen.delegate = sdel;
+        } else {
+            NSLog(@"input only mdel or sdel");
         }
+            
+        [restaurantKitchen.delegate kitchen:restaurantKitchen shouldMakePizzaOfSize:sizeEnum andToppings:toppings];
+        [restaurantKitchen.delegate kitchenShouldUpgradeOrder:restaurantKitchen];
+        
         return 0;
+    }
     }
 }
 

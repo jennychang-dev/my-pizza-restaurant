@@ -11,8 +11,10 @@
 @implementation Manager
 
 - (BOOL)kitchen:(Kitchen *)kitchen shouldMakePizzaOfSize:(PizzaSize)size andToppings:(NSArray *)toppings {
-    NSLog(@"requested pizza for manager is %u size and %@ toppings",size,toppings);
-    return YES;
+    
+    if ([toppings containsObject:@"anchovies"])
+        NSLog(@"no man contains anchovies!!!!");
+        return NO;
 }
 
 - (BOOL)kitchenShouldUpgradeOrder:(Kitchen *)kitchen {

@@ -11,8 +11,7 @@
 @implementation SecondManager
 
 - (BOOL)kitchen:(Kitchen *)kitchen shouldMakePizzaOfSize:(PizzaSize)size andToppings:(NSArray *)toppings {
-    NSLog(@"produce pizza w this size %u and these toppings %@",size,toppings);
-  //  if (//satisifies this)  pizza doesn't mind any toppings so always produce YES
+    NSLog(@"will satisfy your pizza order");
     return YES;
 }
 

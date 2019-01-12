@@ -14,13 +14,10 @@
 
 -(Pizza *)makePizzaWithSize:(PizzaSize)size toppings:(NSArray *)toppings
 {
-    Kitchen *kitcho = [[Kitchen alloc] init];
-    Pizza *makePizza = [[Pizza alloc] initWithPizzaSize:size andToppings:toppings];
-    Manager *assign = [[Manager alloc] init];
-    kitcho.delegate = assign;
+    Pizza *jcPizza = [[Pizza alloc] initWithPizzaSize:size andToppings:toppings];
+//    NSLog(@"toppings: %@, you have reached initialisation point",toppings);
     
-    [kitcho.delegate kitchen:kitcho shouldMakePizzaOfSize:size andToppings:toppings];
-    return makePizza;
+    return jcPizza;
 }
 
 // optional: use respondsToSelector:

@@ -15,7 +15,6 @@
     if (self) {
         _size = size;
         _toppings = toppings;
-        NSLog(@"the pizza you will create is %uu with toppings: %@",_size,_toppings);
     }
     
     return self;
